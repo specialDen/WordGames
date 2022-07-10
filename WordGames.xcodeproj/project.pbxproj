@@ -13,6 +13,11 @@
 		B6957B352879FD9E002AD98D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6957B332879FD9E002AD98D /* Main.storyboard */; };
 		B6957B372879FD9F002AD98D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6957B362879FD9F002AD98D /* Assets.xcassets */; };
 		B6957B3A2879FD9F002AD98D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6957B382879FD9F002AD98D /* LaunchScreen.storyboard */; };
+		B6957B422879FF41002AD98D /* KeyboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B412879FF41002AD98D /* KeyboardVC.swift */; };
+		B6957B442879FF73002AD98D /* WordDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B432879FF73002AD98D /* WordDisplayVC.swift */; };
+		B6957B462879FFB9002AD98D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B452879FFB9002AD98D /* Model.swift */; };
+		B6957B48287A0A9F002AD98D /* KeyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B47287A0A9F002AD98D /* KeyCollectionViewCell.swift */; };
+		B6957B4A287A0B03002AD98D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B49287A0B03002AD98D /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		B6957B362879FD9F002AD98D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6957B392879FD9F002AD98D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6957B3B2879FD9F002AD98D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6957B412879FF41002AD98D /* KeyboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardVC.swift; sourceTree = "<group>"; };
+		B6957B432879FF73002AD98D /* WordDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayVC.swift; sourceTree = "<group>"; };
+		B6957B452879FFB9002AD98D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B6957B47287A0A9F002AD98D /* KeyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6957B49287A0B03002AD98D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,11 @@
 				B6957B362879FD9F002AD98D /* Assets.xcassets */,
 				B6957B382879FD9F002AD98D /* LaunchScreen.storyboard */,
 				B6957B3B2879FD9F002AD98D /* Info.plist */,
+				B6957B412879FF41002AD98D /* KeyboardVC.swift */,
+				B6957B432879FF73002AD98D /* WordDisplayVC.swift */,
+				B6957B452879FFB9002AD98D /* Model.swift */,
+				B6957B47287A0A9F002AD98D /* KeyCollectionViewCell.swift */,
+				B6957B49287A0B03002AD98D /* Extension.swift */,
 			);
 			path = WordGames;
 			sourceTree = "<group>";
@@ -139,8 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6957B322879FD9E002AD98D /* ViewController.swift in Sources */,
+				B6957B422879FF41002AD98D /* KeyboardVC.swift in Sources */,
+				B6957B442879FF73002AD98D /* WordDisplayVC.swift in Sources */,
+				B6957B462879FFB9002AD98D /* Model.swift in Sources */,
 				B6957B2E2879FD9E002AD98D /* AppDelegate.swift in Sources */,
 				B6957B302879FD9E002AD98D /* SceneDelegate.swift in Sources */,
+				B6957B48287A0A9F002AD98D /* KeyCollectionViewCell.swift in Sources */,
+				B6957B4A287A0B03002AD98D /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
