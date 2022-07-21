@@ -22,7 +22,7 @@ class KeyboardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .clear
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         
@@ -48,29 +48,40 @@ extension KeyboardVC: UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        keys.keys.count
+        keys.sections.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        keys.keys[section].count
+        switch keys.sections[section] {
+            
+        case
+                .first(let row),
+                .second(let row),
+                .third(let row):
+            return row.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyCollectionViewCell.reuseIdentifier, for: indexPath) as? KeyCollectionViewCell else {
             fatalError()
         }
-        let letter = keys.keys[indexPath.section][indexPath.row]
-        cell.configure(with: letter)
-        return cell
+        switch keys.sections[indexPath.section] {
+        case .first(let row), .second(let row), .third(let row):
+            let letter = row[indexPath.row]
+            cell.configure(with: letter)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let margin: CGFloat = 20
-        let size: CGFloat = (collectionView.frame.size.width-margin)/10
+        let size: CGFloat = (collectionView.frame.size.width - margin)/10
         
-        
-        if (indexPath.section == 2 && (indexPath.row == 0 || indexPath.row == keys.keys[indexPath.section].count - 1)){
+        switch keys.sections[indexPath.section] {
+        case .third(let row) where (indexPath.row == 0 || indexPath.row == row.count - 1):
             return CGSize(width: size * 1.5 , height: size*1.5)
-        } else {
+        case .first, .second, .third:
             return CGSize(width: size, height: size*1.5)
         }
     }
@@ -107,9 +118,13 @@ extension KeyboardVC: UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             //
             collectionView.deselectItem(at: indexPath, animated: true)
-        let letter = keys.keys[indexPath.section][indexPath.row]
-            delegate?.keyboardViewController(self,
-                                             didTapKey: letter)
+        switch keys.sections[indexPath.section] {
+        case .first(let row), .second(let row), .third(let row):
+            let letter = row[indexPath.row]
+                delegate?.keyboardViewController(self,
+                                                 didTapKey: letter)
+        }
+
         }
     
     

@@ -8,17 +8,17 @@
 import UIKit
 
 protocol WordDisplayVCDatasource: AnyObject {
-    var currentGuesses: [[String?]] { get }
-    func boxColor(at indexPath: IndexPath) -> UIColor?
+    var currentGuesses: [[LetterStruct?]] { get }
+//    func boxColor(at indexPath: IndexPath) -> UIColor?
 }
 
 class WordDisplayVC: UIViewController {
 
-    weak var datasource: WordDisplayVCDatasource?
+    var datasource: WordDisplayVCDatasource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .clear
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -61,12 +61,13 @@ extension WordDisplayVC: UICollectionViewDelegateFlowLayout, UICollectionViewDel
             fatalError()
         }
 
-        cell.backgroundColor = datasource?.boxColor(at: indexPath)
+        let guesses = datasource?.currentGuesses ?? []
+        cell.backgroundColor = guesses[indexPath.section][indexPath.row]?.color
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.systemGray3.cgColor
 
-        let guesses = datasource?.currentGuesses ?? []
-        if let letter = guesses[indexPath.section][indexPath.row] {
+        
+        if let letter = guesses[indexPath.section][indexPath.row]?.letter {
             cell.configure(with: letter)
         }
 

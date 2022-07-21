@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B63A944A287EB6FB00190353 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A9449287EB6FB00190353 /* MainCordinator.swift */; };
+		B63A944C287EB78900190353 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A944B287EB78900190353 /* Coordinator.swift */; };
+		B63A944E287EB88D00190353 /* ScoreBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A944D287EB88D00190353 /* ScoreBoardVC.swift */; };
+		B63A9450287EB99E00190353 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A944F287EB99E00190353 /* StartScreenViewController.swift */; };
+		B63A9454287EBBAA00190353 /* WordleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A9453287EBBAA00190353 /* WordleCoordinator.swift */; };
+		B63A9456287EBBBF00190353 /* WordlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A9455287EBBBF00190353 /* WordlePresenter.swift */; };
+		B63A9458287EBC5D00190353 /* WordleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A9457287EBC5D00190353 /* WordleVC.swift */; };
+		B63A945A287EBD3100190353 /* WordleVCBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A9459287EBD3100190353 /* WordleVCBuilder.swift */; };
+		B63A945C28835CDE00190353 /* ScoreBoardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A945B28835CDE00190353 /* ScoreBoardTableCell.swift */; };
 		B6957B2E2879FD9E002AD98D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B2D2879FD9E002AD98D /* AppDelegate.swift */; };
 		B6957B302879FD9E002AD98D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B2F2879FD9E002AD98D /* SceneDelegate.swift */; };
 		B6957B322879FD9E002AD98D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6957B312879FD9E002AD98D /* ViewController.swift */; };
@@ -21,6 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B63A9449287EB6FB00190353 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
+		B63A944B287EB78900190353 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B63A944D287EB88D00190353 /* ScoreBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardVC.swift; sourceTree = "<group>"; };
+		B63A944F287EB99E00190353 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		B63A9453287EBBAA00190353 /* WordleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleCoordinator.swift; sourceTree = "<group>"; };
+		B63A9455287EBBBF00190353 /* WordlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlePresenter.swift; sourceTree = "<group>"; };
+		B63A9457287EBC5D00190353 /* WordleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleVC.swift; sourceTree = "<group>"; };
+		B63A9459287EBD3100190353 /* WordleVCBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleVCBuilder.swift; sourceTree = "<group>"; };
+		B63A945B28835CDE00190353 /* ScoreBoardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardTableCell.swift; sourceTree = "<group>"; };
 		B6957B2A2879FD9E002AD98D /* WordGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6957B2D2879FD9E002AD98D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6957B2F2879FD9E002AD98D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B63A9451287EBA1900190353 /* WordleModule */ = {
+			isa = PBXGroup;
+			children = (
+				B63A9452287EBA6500190353 /* Views */,
+				B6957B452879FFB9002AD98D /* Model.swift */,
+				B63A9453287EBBAA00190353 /* WordleCoordinator.swift */,
+				B63A9455287EBBBF00190353 /* WordlePresenter.swift */,
+				B63A9459287EBD3100190353 /* WordleVCBuilder.swift */,
+			);
+			path = WordleModule;
+			sourceTree = "<group>";
+		};
+		B63A9452287EBA6500190353 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B63A9457287EBC5D00190353 /* WordleVC.swift */,
+				B63A944D287EB88D00190353 /* ScoreBoardVC.swift */,
+				B6957B412879FF41002AD98D /* KeyboardVC.swift */,
+				B6957B432879FF73002AD98D /* WordDisplayVC.swift */,
+				B6957B47287A0A9F002AD98D /* KeyCollectionViewCell.swift */,
+				B63A945B28835CDE00190353 /* ScoreBoardTableCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B6957B212879FD9E002AD98D = {
 			isa = PBXGroup;
 			children = (
@@ -73,10 +116,10 @@
 				B6957B362879FD9F002AD98D /* Assets.xcassets */,
 				B6957B382879FD9F002AD98D /* LaunchScreen.storyboard */,
 				B6957B3B2879FD9F002AD98D /* Info.plist */,
-				B6957B412879FF41002AD98D /* KeyboardVC.swift */,
-				B6957B432879FF73002AD98D /* WordDisplayVC.swift */,
-				B6957B452879FFB9002AD98D /* Model.swift */,
-				B6957B47287A0A9F002AD98D /* KeyCollectionViewCell.swift */,
+				B63A9449287EB6FB00190353 /* MainCordinator.swift */,
+				B63A944F287EB99E00190353 /* StartScreenViewController.swift */,
+				B63A944B287EB78900190353 /* Coordinator.swift */,
+				B63A9451287EBA1900190353 /* WordleModule */,
 				B6957B49287A0B03002AD98D /* Extension.swift */,
 			);
 			path = WordGames;
@@ -155,10 +198,19 @@
 			files = (
 				B6957B322879FD9E002AD98D /* ViewController.swift in Sources */,
 				B6957B422879FF41002AD98D /* KeyboardVC.swift in Sources */,
+				B63A945A287EBD3100190353 /* WordleVCBuilder.swift in Sources */,
+				B63A944C287EB78900190353 /* Coordinator.swift in Sources */,
+				B63A9458287EBC5D00190353 /* WordleVC.swift in Sources */,
+				B63A9454287EBBAA00190353 /* WordleCoordinator.swift in Sources */,
+				B63A9450287EB99E00190353 /* StartScreenViewController.swift in Sources */,
+				B63A944E287EB88D00190353 /* ScoreBoardVC.swift in Sources */,
+				B63A944A287EB6FB00190353 /* MainCordinator.swift in Sources */,
+				B63A9456287EBBBF00190353 /* WordlePresenter.swift in Sources */,
 				B6957B442879FF73002AD98D /* WordDisplayVC.swift in Sources */,
 				B6957B462879FFB9002AD98D /* Model.swift in Sources */,
 				B6957B2E2879FD9E002AD98D /* AppDelegate.swift in Sources */,
 				B6957B302879FD9E002AD98D /* SceneDelegate.swift in Sources */,
+				B63A945C28835CDE00190353 /* ScoreBoardTableCell.swift in Sources */,
 				B6957B48287A0A9F002AD98D /* KeyCollectionViewCell.swift in Sources */,
 				B6957B4A287A0B03002AD98D /* Extension.swift in Sources */,
 			);

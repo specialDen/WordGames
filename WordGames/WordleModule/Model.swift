@@ -4,8 +4,6 @@
 //
 //  Created by Izuchukwu Dennis on 09.07.2022.
 //
-
-import Foundation
 import UIKit
 
 struct Keys {
@@ -17,5 +15,18 @@ struct Keys {
 
 struct KeysManager {
     
-    let keys: [[String]] = [Keys.firstRow, Keys.secondRow, Keys.lastRow]
+//    let keys: [[String]] = [Keys.firstRow, Keys.secondRow, Keys.lastRow]
+    let sections: [Sections] = [.first(Keys.firstRow), .second(Keys.secondRow), .third(Keys.lastRow)]
+}
+
+struct LetterStruct {
+    var letter: String
+    var color: UIColor?
+}
+
+
+enum Sections {
+    case first(_ model: [String])
+    case second(_ model: [String])
+    case third(_ model: [String])
 }

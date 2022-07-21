@@ -7,14 +7,17 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     
     let answers = [
             "later", "bloke", "there", "ultra"
         ]
+    var currentWord = 0
+    var wordChecked = false
 
         var answer = ""
-        private var guesses: [[String?]] = Array(
+        private var guesses: [[LetterStruct?]] = Array(
             repeating: Array(repeating: nil, count: 5),
             count: 6
         )
@@ -24,9 +27,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addChildren()
-        keyboardVC.delegate = self
-        wordDisplayVC.datasource = self
+//        addChildren()
+//        keyboardVC.delegate = self
+//        wordDisplayVC.datasource = self
+//        answer = answers.randomElement() ?? "Array"
+//        title = "Wordle"
     }
     
     private func addChildren() {
@@ -65,54 +70,76 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: KeyboardVCDelegate {
-    func keyboardViewController(_ vc: KeyboardVC, didTapKey letter: String) {
-
-        // Update guesses
-        var stop = false
-
-        for i in 0..<guesses.count {
-            for j in 0..<guesses[i].count {
-                if guesses[i][j] == nil {
-                    guesses[i][j] = letter
-                    stop = true
-                    break
-                }
-            }
-
-            if stop {
+    private func deleteLastLetter(){
+        for characterIndex in 0..<guesses[currentWord].count {
+            if (guesses[currentWord][characterIndex] == nil) && (characterIndex != 0){
+                guesses[currentWord][characterIndex - 1] = nil
                 break
             }
         }
+    }
+    
+    private func addLetter(_ letter: String){
+        for characterIndex in 0..<guesses[currentWord].count {
+            if (guesses[currentWord][characterIndex] == nil) && (characterIndex <= guesses[currentWord].count){
+                guesses[currentWord][characterIndex] = LetterStruct(letter: letter)
+                break
+            }
+        }
+    }
+    private func checkWord() {
+        var myGuess = guesses
+        for index in 0..<myGuess[currentWord].count {
+            myGuess[currentWord][index]?.color = getColor(at: index, guesses)
+        }
+        
+        guesses = myGuess
+    }
 
+    
+    func keyboardViewController(_ vc: KeyboardVC, didTapKey letter: String) {
+        switch letter {
+            
+        case "ok":
+            if (guesses[currentWord].last! != nil) && (currentWord < guesses.count - 1){
+                
+                checkWord()
+                currentWord += 1
+                wordChecked = true
+            }
+        case "del":
+            deleteLastLetter()
+        default:
+            addLetter(letter)
+        }
         wordDisplayVC.reloadData()
     }
 }
 
+
 extension ViewController: WordDisplayVCDatasource {
-    var currentGuesses: [[String?]] {
+    var currentGuesses: [[LetterStruct?]] {
         return guesses
     }
+    
+    private func getColor(at index: Int, _ myGuess : [[LetterStruct?]]) -> UIColor?{
 
-    func boxColor(at indexPath: IndexPath) -> UIColor? {
-        let rowIndex = indexPath.section
-
-        let count = guesses[rowIndex].compactMap({ $0 }).count
-        guard count == 5 else {
-            return nil
-        }
-
-        let indexedAnswer = Array(answer)
-
-        guard let letter = guesses[indexPath.section][indexPath.row],
-              indexedAnswer.contains(Character(letter)) else {
-            return nil
-        }
-
-        if indexedAnswer[indexPath.row] == Character(letter) {
-            return .systemGreen
-        }
-
-
+            let indexedAnswer = Array(answer)
+            guard let letter = myGuess[currentWord][index]?.letter,
+                  answer.contains(letter) else {
+                        return nil
+                    }
+            if indexedAnswer[index] == Character(letter) {
+                return .systemGreen
+            }
         return .systemOrange
     }
+    
+            
+}
+
+enum ColourScheme  {
+    case match
+    case contains
+    case noMatch
 }
